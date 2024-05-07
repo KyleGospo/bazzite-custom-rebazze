@@ -53,8 +53,8 @@ rpm-ostree uninstall yq
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
-systemctl enable mullvad-daemon
-systemctl enable mullvad-early-boot-blocking
+#systemctl enable mullvad-daemon
+#systemctl enable mullvad-early-boot-blocking
 
 # Clean up the yum repo (updates are baked into new images)
 rm /etc/yum.repos.d/mullvad.repo -f
