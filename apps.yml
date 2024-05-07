@@ -5,12 +5,10 @@ repos:
 install:  
   - code
   - curl
-  - powerline-fonts
   - rclone
   - ripgrep
   - rsync
   - tmux
-  - vlc
   - konsole
   - firefox
   - zsh

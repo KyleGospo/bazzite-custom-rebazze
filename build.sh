@@ -29,8 +29,6 @@ tar -xzf /tmp/yq.tar.gz -C /tmp
 mv /tmp/yq_linux_amd64 /tmp/yq
 install -c -m 0755 /tmp/yq /usr/bin
 
-rpm-ostree install yq
-rpm-ostree install wget
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -41,7 +39,8 @@ bash /tmp/1password.sh
 bash /tmp/rpm-ostree.sh /tmp/apps.yml
 bash /tmp/scripts/mullvad-vpn.sh
 bash /tmp/scripts/microsoft-edge.sh
-rpm-ostree uninstall yq
+dnf clean packages
+
 
 # this installs a package from fedora repos
 
