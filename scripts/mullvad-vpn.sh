@@ -17,7 +17,7 @@ mkdir -p $UNPACK_PATH
 cd $UNPACK_PATH
 
 rpm2cpio /tmp/mv.rpm | cpio -idmv
-
+rm -f /tmp/mv.rpm 
 mv "${UNPACK_PATH}/opt/${PACKAGE_OPT_NAME}" "/usr/lib"
 cp -rv "${UNPACK_PATH}/usr" "/"
 
