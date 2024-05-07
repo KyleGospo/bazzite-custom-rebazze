@@ -1,0 +1,14 @@
+[Unit]
+Description=Run 
+Wants=network-online.target
+After=network-online.target bazzite-user-setup.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bazzite-og-user-vscode
+Restart=on-failure
+RestartSec=30
+StartLimitInterval=0
+
+[Install]
+WantedBy=default.target

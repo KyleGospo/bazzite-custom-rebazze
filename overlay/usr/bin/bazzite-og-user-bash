@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# SCRIPT VERSION
+USER_SETUP_VER=2
+USER_SETUP_VER_FILE="${XDG_DATA_HOME:-$HOME/.local/share}/bazzite/bash-configured"
+USER_SETUP_VER_RAN=$(cat "$USER_SETUP_VER_FILE")
+
+mkdir -p "$(dirname "$USER_SETUP_VER_FILE")" || exit 1
+
+# Run script if updated
+if [[ -f $USER_SETUP_VER_FILE && "$USER_SETUP_VER" = "$USER_SETUP_VER_RAN" ]]; then
+  echo "User setup of blesh  v$VER has already run. Exiting..."
+  exit 0
+fi
+
+set -euo pipefail
+
+cd /tmp
+curl -LO https://github.com/akinomyoga/ble.sh/releases/download/v0.3.4/ble-0.3.4.tar.xz
+
+rm -rf ~/.local/share/blesh
+mkdir -p ~/.local/share/blesh
+# INSTALL (more robust)
+tar xJf ble-0.3.4.tar.xz -C ~/.local/share/blesh --strip-components=1
+
+mkdir -p ~/.bashrc.d
+
+echo 'source ~/.local/share/blesh/ble.sh' > ~/.bashrc.d/ble.sh
+echo 'eval "$(starship init bash)"' > ~/.bashrc.d/starship.sh
+echo 'eval "$(zoxide init bash)"' > ~/.bashrc.d/zoxide.sh
+
+
+# Prevent future executions
+echo "Writing state file"
+echo "$USER_SETUP_VER" > "$USER_SETUP_VER_FILE"
