@@ -11,6 +11,8 @@ install:
   - rsync
   - tmux
   - vlc
+  - konsole
+  - firefox
   - zsh
   - zsh-autosuggestions
   - zsh-syntax-highlighting
