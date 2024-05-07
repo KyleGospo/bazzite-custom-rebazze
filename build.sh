@@ -38,9 +38,9 @@ rpm-ostree install wget
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 bash /tmp/1password.sh
-#bash /tmp/scripts/mullvad-vpn.sh
 bash /tmp/rpm-ostree.sh /tmp/apps.yml
-
+bash /tmp/scripts/mullvad-vpn.sh
+bash /tmp/scripts/microsoft-edge.sh
 rpm-ostree uninstall yq
 
 # this installs a package from fedora repos
